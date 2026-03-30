@@ -8,3 +8,4 @@ This is a C# console application for interacting with a chatbot about cybersecur
 1) clone the repository
 2) open the solution in visual studio
 3) build the project
+![CI ACTIONS](CIACTIONS.png)
