@@ -42,6 +42,9 @@ namespace PROG_POE
                 case "What do I do if I have been hacked?":
                     response = "Immediately change all your passwords, starting with critical accounts like email and banking. Scan your devices for malware and remove any suspicious software. Report the incident to relevant authorities or service providers to secure your accounts.";
                     break;
+                case "EXIT":
+                    response = "Thank you for chatting with me! If you have any more questions in the future, feel free to reach out. Stay safe online!";
+                    break;
                 default:
                     response = "I'm sorry, I didn't quite understand that. Can you please rephrase your question?";
                     break;

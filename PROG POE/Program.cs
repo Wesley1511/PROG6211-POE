@@ -32,17 +32,6 @@ namespace PROG_POE
             SoundPlayer player = new SoundPlayer(path); //new soundplayer object to play the wav greeting file
             player.PlaySync();  //play the greeting file synchronously
 
-            Thread.Sleep(1000); //collection of thread sleep commands to create a loading effect for the user
-            Console.WriteLine();
-            Console.WriteLine("-------------[CHAT INITIALIZING]-------------");
-            Thread.Sleep(1000);   
-            Console.WriteLine("-------------[CONNECTING.......]-------------");
-            Thread.Sleep(1000);
-            Console.WriteLine("-------------[    CONNECTED    ]-------------");
-            Thread.Sleep(1000);
-
-
-
             chat.StartChat();
 
 
