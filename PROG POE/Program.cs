@@ -16,7 +16,7 @@ namespace PROG_POE
 
             User user = new User();    //create a new user object to access the user class
             ChatBot bot = new ChatBot();  //create a new chatbot object to access the chatbot class
-            Chat chat = new Chat();    //create a new chat object to access the chat class
+            Chat chat = new Chat(user, bot);    //create a new chat object to access the chat class
 
 
             Console.WriteLine(" _       _____  _______ _     _ _______ _______ _____ _______ _     _"); //ASCII art for the welcome message
@@ -43,16 +43,7 @@ namespace PROG_POE
 
 
 
-            int status = 1;    //status variable to control the while loop
-
-            while(status != 0)  //main loop for the program a status of 1 will keep the program running, a status of 0 will end the program
-            {
-                Console.WriteLine ("while test");
-                string input = Console.ReadLine();
-                status = int.Parse (input);
-                Console.WriteLine ("status: " + status);
-                Console.WriteLine(user.GetUserName());
-            }
+            chat.StartChat();
 
 
 
