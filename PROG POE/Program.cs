@@ -10,6 +10,7 @@ namespace PROG_POE
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("test");
         }
     }
 }
