@@ -34,7 +34,7 @@ namespace PROG_POE
             SoundPlayer player = new SoundPlayer(path); //new soundplayer object to play the wav greeting file
             player.PlaySync();  //play the greeting file synchronously
 
-            chat.StartChat();
+            chat.StartChat();   //method to start the chat between the user and the chatbot
 
 
 
