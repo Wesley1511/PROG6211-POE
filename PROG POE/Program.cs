@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace PROG_POE
 {
@@ -10,7 +11,22 @@ namespace PROG_POE
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("test");
+            string path = @"..\..\Audio\Greeting.wav";   //path to the welcome audio file
+
+            SoundPlayer player = new SoundPlayer(path); //new soundplayer object to play the wav greeting file
+            player.PlaySync();  //play the greeting file synchronously
+
+            int status = 1;    //status variable to control the while loop
+
+            while(status != 0)  //main loop for the program a status of 1 will keep the program running, a status of 0 will end the program
+            {
+                Console.WriteLine ("while test");
+                string input = Console.ReadLine();
+                status = int.Parse (input);
+                Console.WriteLine ("status: " + status);
+            }
+
+
         }
     }
 }
