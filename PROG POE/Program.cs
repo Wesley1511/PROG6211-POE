@@ -18,7 +18,7 @@ namespace PROG_POE
             ChatBot bot = new ChatBot();  //create a new chatbot object to access the chatbot class
             Chat chat = new Chat(user, bot);    //create a new chat object to access the chat class
 
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" _       _____  _______ _     _ _______ _______ _____ _______ _     _"); //ASCII art for the welcome message
             Console.WriteLine(" |      |     | |       |____/  |______ |  |  |   |      |    |_____|");
             Console.WriteLine(" |_____ |_____| |_____  |    \\_ ______| |  |  | __|__    |    |     |");
@@ -26,7 +26,9 @@ namespace PROG_POE
             Console.WriteLine("    /.-. '----------.     /.-. '----------.     /.-. '----------.");
             Console.WriteLine("    \'-' .---'-''-'-'     \'-' .--'--''-'-'     \'-' .--'--'-''-'");
             Console.WriteLine("     '--'                  '--'                  '--'  ");
-            Console.WriteLine("A Chatbot by LOCKSMITH SOLUTIONS");
+            Console.Write("A Chatbot by");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(" LOCKSMITH SOLUTIONS");
 
 
             SoundPlayer player = new SoundPlayer(path); //new soundplayer object to play the wav greeting file

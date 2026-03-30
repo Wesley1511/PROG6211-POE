@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Timers;
 
 namespace PROG_POE
 {
@@ -54,12 +55,24 @@ namespace PROG_POE
             Thread.Sleep(1000);
             Console.WriteLine();
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("[CyberSafe] ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Hello!, my name is CyberSafe and I will be your cybersecurity assistant today! Please tell me your name so we can get started!");
 
-            Console.WriteLine("[CyberSafe] Hello!, my name is CyberSafe and I will be your cybersecurity assistant today! Please tell me your name so we can get started!");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Name: ");
             String name = ChatUser.GetUserInput();
             ChatUser.SetUserName(name);
-            Console.WriteLine("[CyberSafe] Nice to meet you " + ChatUser.GetUserName() + "! How can I assist you today? You can ask me any question about cybersecurity and I will do my best to help you! You can type EXIT at any time to close our chat!");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("[CyberSafe] ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Nice to meet you " + ChatUser.GetUserName() + "! How can I assist you today? You can ask me any question about cybersecurity and I will do my best to help you! You can type");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(" EXIT ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("at any time to close our chat!");
 
             int chatStatus = 1; //variable to keep track of the chat status, if the user wants to end the chat it will be set to 0 and the chat will end
 
@@ -67,23 +80,45 @@ namespace PROG_POE
             {
                 string userInput = "";
                 string botResponse = "";
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write("[" + ChatUser.GetUserName() + "]" + " ");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 userInput = ChatUser.GetUserInput();
                 botResponse = ChatBot.GetChatBotResponse(userInput);
-                Console.WriteLine("[" + ChatBot.GetChatBotName() + "]" + " " + botResponse);
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("[" + ChatBot.GetChatBotName() + "]" + " ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("...THINKING...");
+                Thread.Sleep(2000);
+
+                Console.SetCursorPosition(0, Console.CursorTop - 1); //moves the cursor up one line to overwrite the "thinking" message with the actual response from the chatbot
+
+                Console.Write(new string(' ', Console.WindowWidth));
+
+                Console.SetCursorPosition(0, Console.CursorTop); //moves the cursor back to the beginning of the line after clearing it
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("[" + ChatBot.GetChatBotName() + "]" + " ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(botResponse);
 
                 if (userInput == "EXIT") //if the user types EXIT, the chat will end
                 {
 
                     Thread.Sleep(1000); //collection of thread sleep commands to create a loading effect for the user
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("-------------[CHAT ENDING]-------------------");
                     Thread.Sleep(1000);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("-------------[DISCONNECTING]-----------------");
                     Thread.Sleep(1000);
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("-------------[CHAT DISCONNECTED]-------------");
-                    Thread.Sleep(1000);
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
+                    Console.ForegroundColor = ConsoleColor.White;
 
                     chatStatus = 0;
                 }
