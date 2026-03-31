@@ -20,7 +20,7 @@ namespace PROG_POE
             return name;
         }
 
-        public string GetChatBotResponse(string input)
+        public string GetChatBotResponse(string input)  //function that takes the user input and returns the response from the chatbot, will likely be expanded on in the next part
         {
             Response Botresponse = new Response();
 
